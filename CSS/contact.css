@@ -1,0 +1,167 @@
+div.contact-wrapper {  }
+
+form.contact {
+	position: relative;
+	width : 100%;
+	top : 0;
+	bottom : 0;
+	margin : auto;
+	padding: 8px;
+}
+
+div.contact-field { 
+  position:relative; 
+  margin-bottom:45px; 
+}
+
+input.contact-field-input,
+textarea.contact-field-textarea {
+	background: transparent;
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  border:none;
+  border-bottom:1px solid #757575;
+  width : 100%;
+}
+
+textarea.contact-field-textarea { 
+  resize: none; 
+  height : 256px;
+}
+
+input.contact-field-input:focus,
+textarea.contact-field-textarea:focus { 
+  outline : none; 
+}
+
+label.contact-field-label {
+  color:#999; 
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+input.contact-field-input:focus ~ label.contact-field-label, 
+input.contact-field-input:valid ~ label.contact-field-label,
+textarea.contact-field-textarea:focus ~ label.contact-field-label, 
+textarea.contact-field-textarea:valid ~ label.contact-field-label {
+  top:-20px;
+  font-size:14px;
+  color : #e58e26;
+}
+
+span.contact-field-bar 	{ 
+	position:relative; 
+	display:block; 
+}
+
+span.contact-field-bar:before, 
+span.contact-field-bar:after 	{
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:1px; 
+  position:absolute;
+  background : #e58e26; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+span.contact-field-bar:before { left:50%; }
+
+span.contact-field-bar:after { right:50%; }
+
+input.contact-field-input:focus ~ span.contact-field-bar:before, 
+input.contact-field-input:focus ~ span.contact-field-bar:after,
+textarea.contact-field-textarea:focus ~ span.contact-field-bar:before, 
+textarea.contact-field-textarea:focus ~ span.contact-field-bar:after {
+  width:50%;
+}
+
+span.contact-field-highlight {
+  position:absolute;
+  height:60%; 
+  width:100px; 
+  top:25%; 
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+input.contact-field-input:focus ~ span.contact-field-highlight,
+textarea.contact-field-textarea:focus ~ span.contact-field-highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+@-webkit-keyframes inputHighlighter {
+	from { background: #e58e26; }
+	to { width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+	from { background : #e58e26; }
+	to { width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+	from { background : #e58e26; }
+	to { width:0; background:transparent; }
+}
+
+button.contact-field-button {
+  position: relative;
+  cursor : pointer;
+  display: block;
+  margin: 30px auto;
+  padding: 0;
+  overflow: hidden;
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+  background-color: #333;
+  color: #ecf0f1;
+  width: 100%;
+  transition: background-color .3s;
+}
+
+button.contact-field-button:hover, 
+button.contact-field-button:focus { background-color : #e58e26; }
+
+button.contact-field-button > * { position : relative; }
+
+button.contact-field-button span {
+  display: block;
+  padding: 12px 24px;
+}
+
+button.contact-field-button:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 0;
+  padding-top: 0;
+  border-radius: 100%;
+  background-color: rgba(236, 240, 241, .3);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+button.contact-field-button:active:before {
+  width: 120%;
+  padding-top: 120%;
+  transition: width .2s ease-out, padding-top .2s ease-out;
+}

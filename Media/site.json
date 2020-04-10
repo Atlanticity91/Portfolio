@@ -1,0 +1,20 @@
+{
+	"Config" : {
+		"ScrollOffset" : 74,
+		"ScrollSpeed" : 1200,
+		"Gallery" : "gallery.json",
+		"Email" : "altanticity91@gmail.com"
+	},
+	"Card" : {
+		"Photo" : "Media/Images/IMG_20180209_120243.jpg",
+		"Description" : "Je suis photographe amateur depuis quelque années maintenant, vous pourrez trouvé ici des extraits de mes travaux."
+	},	
+	"Pages" : [
+		{ "Name" : "Accueil", "Wrapper" : "wrap-home", "Source" : "home.html" },
+		{ "Name" : "Galerie", "Wrapper" : "wrap-gallery", "Source" : "gallery.html" },
+		{ "Name" : "Contact", "Wrapper" : "wrap-contact", "Source" : "contact.html" }
+	],
+	"Tags" : [
+		"Nature", "Paysage", "Portrait", "Boudoir"
+	]
+}

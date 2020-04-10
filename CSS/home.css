@@ -1,0 +1,35 @@
+div.card {
+	position: relative;
+	display: inline-block;
+	width: 628px;
+	height : 336px;
+	left: 17%;
+}
+
+img.card-image { 
+	border : 5px solid white; 
+	width : 256px;
+	height : 256px;
+}
+
+div.card-content {
+	position: absolute;
+	top: 0;
+	left: 292px;
+	width: 336px;
+	height: 336px;
+}
+
+span.card-name {
+	height: 64px;
+	line-height: 64px;
+	font-size: 32px;
+	text-shadow: white 1px 0 5px;
+}
+
+span.card-description {
+	position: absolute;
+	top: 86px;
+	left: 0;
+	font-size: 16px;
+}

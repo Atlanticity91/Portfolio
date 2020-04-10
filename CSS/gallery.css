@@ -1,0 +1,33 @@
+div.gallery-wrapper { 
+	display : grid;
+	grid-template-columns : 1fr;
+	grid-column-gap : 8px;
+	grid-row-gap : 8px;
+	padding: 8px 0;
+}
+
+div.gallery-preview { 
+	position: relative; 
+	cursor : pointer;
+}
+
+img.gallery-preview-mini { 
+	width: 100%;
+	height: auto;
+}
+
+span.gallery-preview-name {  
+	left: 0;
+	position: absolute;
+	height: 32px;
+	width: 100%;
+	bottom: 0;
+	background: linear-gradient(90deg, transparent, rgba( 51, 51, 51, 0.9 ), rgba( 51, 51, 51, 0.9 ), transparent );
+	line-height: 32px;
+	font-size: 16px;
+	text-align: center;
+}
+
+@media screen and ( min-width : 640px ) {
+	div.gallery-wrapper { grid-template-columns : repeat( 4, 1fr ); }
+}
