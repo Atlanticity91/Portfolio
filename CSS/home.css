@@ -1,9 +1,21 @@
+div.card-wrapper {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
 div.card {
 	position: relative;
-	display: inline-block;
+	/*display: inline-block;*/
 	width: 628px;
 	height : 336px;
-	left: 17%;
+	/*left: 17%;
+	top: 50%;*/
+	top: 25%;
+	left: 20%;
 }
 
 img.card-image { 

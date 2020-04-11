@@ -1,0 +1,79 @@
+body { background : #FFF5EE; }
+
+div.terminal-window {
+	text-align : left;
+	width : 37.5rem;
+	height : 22.5rem;
+	border-radius : .625rem;
+	margin : auto;
+	position : relative;
+	top : 14.5rem;
+}
+
+div.terminal-window-header {
+	background : #E0E8F0;
+	height : 1.875rem;
+	border-radius : .5rem .5rem 0 0;
+	padding-left : .625rem;
+}
+
+div.terminal-window-button {
+	width : .75rem;
+	height : .75rem;
+	margin : .625rem .25rem 0 0;
+	display : inline-block;
+	border-radius : .5rem;
+}
+
+div.terminal-window-button.green { background : #3BB662; }
+
+div.terminal-window-button.yellow { background : #E5C30F; }
+
+div.terminal-window-button.red { background : #E75448; }
+
+div.terminal-content{
+	color : white;
+	font-family : Menlo, Monaco, "Consolas", "Courier New", "Courier";
+	font-size : 11pt;
+	background : #30353A;
+	padding : .625rem;
+	box-sizing : border-box;
+	position : absolute;
+	width : 100%;
+	top : 1.875rem;
+	bottom : 0;
+	overflow : auto;
+}
+
+span.terminal-typed-cursor {
+	opacity: 1;
+	-webkit-animation: blink 0.7s infinite;
+	-moz-animation: blink 0.7s infinite;
+	animation: blink 0.7s infinite;
+}
+
+div.terminal-window .gray,
+div.terminal-window a { 
+	color : gray; 
+}
+div.terminal-window .green { color : green; }
+
+div.terminal-window a:hover { color : darkgrey; }
+
+@keyframes blink{
+    0% { opacity : 1; }
+    50% { opacity : 0; }
+    100% { opacity : 1; }
+}
+
+@-webkit-keyframes blink{
+    0% { opacity : 1; }
+    50% { opacity : 0; }
+    100% { opacity : 1; }
+}
+
+@-moz-keyframes blink{
+    0% { opacity : 1; }
+    50% { opacity : 0; }
+    100% { opacity : 1; }
+}

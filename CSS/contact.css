@@ -1,28 +1,29 @@
-div.contact-wrapper {  }
+div.contact-wrapper {  
+  position: absolute;
+  width: 100%;
+  top : 14%;
+  padding: 8px;
+}
 
 form.contact {
 	position: relative;
-	width : 100%;
-	top : 0;
-	bottom : 0;
-	margin : auto;
-	padding: 8px;
 }
 
 div.contact-field { 
-  position:relative; 
-  margin-bottom:45px; 
+  position : relative;
+  margin-bottom : 45px; 
 }
 
 input.contact-field-input,
 textarea.contact-field-textarea {
-	background: transparent;
-  font-size:18px;
-  padding:10px 10px 10px 5px;
-  display:block;
-  border:none;
-  border-bottom:1px solid #757575;
+	background : transparent;
+  font-size : 18px;
+  padding : 10px 10px 10px 5px;
+  display : block;
   width : 100%;
+  color : #fefee2;
+  border : none;
+  border-bottom : 1px solid #757575;
 }
 
 textarea.contact-field-textarea { 
@@ -58,8 +59,8 @@ textarea.contact-field-textarea:valid ~ label.contact-field-label {
 }
 
 span.contact-field-bar 	{ 
-	position:relative; 
-	display:block; 
+	position : relative; 
+	display : block; 
 }
 
 span.contact-field-bar:before, 
@@ -75,15 +76,15 @@ span.contact-field-bar:after 	{
   -webkit-transition:0.2s ease all;
 }
 
-span.contact-field-bar:before { left:50%; }
+span.contact-field-bar:before { left : 50%; }
 
-span.contact-field-bar:after { right:50%; }
+span.contact-field-bar:after { right : 50%; }
 
 input.contact-field-input:focus ~ span.contact-field-bar:before, 
 input.contact-field-input:focus ~ span.contact-field-bar:after,
 textarea.contact-field-textarea:focus ~ span.contact-field-bar:before, 
 textarea.contact-field-textarea:focus ~ span.contact-field-bar:after {
-  width:50%;
+  width : 50%;
 }
 
 span.contact-field-highlight {
