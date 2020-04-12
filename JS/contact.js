@@ -1,6 +1,6 @@
 (function( $ ) {
 
-	let email = GetAttr( 'Config', 'Email' );
+	let email = Global.GetAttr( 'Config', 'Email' );
 
 	$( 'form#contact' ).attr( 'action', 'http://formspree.io/' + email );
 

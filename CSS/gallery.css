@@ -22,7 +22,7 @@ span.gallery-preview-name {
 	height: 32px;
 	width: 100%;
 	bottom: 0;
-	background: linear-gradient(90deg, transparent, rgba( 51, 51, 51, 0.9 ), rgba( 51, 51, 51, 0.9 ), transparent );
+	background: linear-gradient( 90deg, transparent, rgba( 51, 51, 51, 0.9 ), rgba( 51, 51, 51, 0.9 ), transparent );
 	line-height: 32px;
 	font-size: 16px;
 	text-align: center;
@@ -33,56 +33,116 @@ span.gallery-preview-name {
 	img.gallery-preview-mini { width: 90%; }
 }
 
-div.media-wrapper { display : none; }
+div.preview-wrapper { 
+	display : none; 
+}
 
-div.media-wrapper-background {  
-	z-index: 6;
+div.preview-aplat {
 	position : fixed;
-	background : black;
 	top : 0;
 	left : 0;
 	width : 100%;
 	height : 100%;
+	background : #000;
+	opacity : 70%;
 }
 
-div.media-wrapper-view {
-	z-index : 7;  
+div.preview-box { position : absolute; }
+
+span.preview-box-title {
 	position : absolute;
-	top : 15%;
-	left : 25%;
-	right : 25%;
-	background : #fff;
-	padding: 10px;
-}
-
-div.media-wrapper-close {  
-	position: absolute;
-	width : 30px;
-	height : 30px;
-	background : blue;
-	top: -15px;
-	right: -15px;
-}
-
-img.media-wrapper-image {  
-	width: 100%;
-	height: auto;
-}
-
-div.media-wrapper-list { 
-	position : absolute;
-	display : inline-block;
-	height : 128px;
+	height: 32px;
+	line-height : 32px;
+	font-size: 16px;
+	text-align : center;
 	left : 0;
-	right : 0;
-	bottom : -128px;
-	background : red;
-	padding : 8px;
-	overflow : hidden;
-} 
-
-div.media-wrapper-list img {  
-	height : 100%;
+	right: 0;
 	width : auto;
-	margin-right : 8px;
+	text-shadow: #333 1px 0 5px;
+	background : linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, transparent 100%);
+	-webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+     user-select: none;
 }
+
+span.preview-box-close {
+	position : absolute;
+	cursor : pointer;
+	height : 32px;
+	width : 32px;
+	top : 2px;
+	right : 2px;
+}
+
+span.preview-box-close svg {
+	top: 4px;
+	bottom: 4px;
+	left: 4px;
+	right: 4px;
+	margin: auto;
+}
+
+span.preview-box-close svg path { fill : #333; }
+
+span.preview-box-close:hover svg path { fill : #000; }
+
+div.preview-box-wrapper { 
+	padding : 4px;
+	background : #fff;
+}
+
+div.preview-box-list {
+	position : absolute;
+	overflow : hidden;
+	bottom : -128px;
+	height : 128px;
+	width : 100%;
+	background : linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, transparent 100%);
+}
+
+span.preview-box-list-left,
+span.preview-box-list-right {  
+	position : absolute;
+	cursor : pointer;
+	height : 100%;
+	width : 32px;
+}
+
+span.preview-box-list-left svg ,
+span.preview-box-list-right svg {
+	position: relative;
+	top: 48px;
+}
+
+span.preview-box-list-right { right : 0; }
+
+span.preview-box-list-left:hover,
+span.preview-box-list-right:hover {
+	background : linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
+}  
+
+div.preview-box-list-content {
+	position: absolute;
+	left: 40px;
+	width : 5000px;
+	height : 128px;
+	padding-top: 8px;
+}
+
+img.preview-box-list-content-image {
+	cursor : pointer;
+	margin-right : 8px;
+	height : 108px;
+	width : 108px;
+	border : 2px solid transparent;
+}
+
+img.preview-box-list-content-image.current { 
+	opacity : 50%;
+	border-color : #fff;
+}
+
+img.preview-box-list-content-image:hover { border-color:  #fff; }

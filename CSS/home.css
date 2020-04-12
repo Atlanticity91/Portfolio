@@ -9,11 +9,8 @@ div.card-wrapper {
 
 div.card {
 	position: relative;
-	/*display: inline-block;*/
 	width: 628px;
 	height : 336px;
-	/*left: 17%;
-	top: 50%;*/
 	top: 25%;
 	left: 20%;
 }

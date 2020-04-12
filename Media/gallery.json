@@ -1,58 +1,24 @@
 {
 	"Galleries" : [
 		{ 
-			"Name" : "Fleur",
-			"Tags" : [ 0, 1, 2 ],
-			"Mini" : "test.png",
-			"Content" : [ "IMG_20180618_183039.jpg" ]
+			"Name" : "Natures",
+			"Mini" : "natures.jpg",
+			"Content" : [ "IMG_20180506_140202.jpg", "IMG_20180506_140639.jpg", "IMG_20181113_130428_1.jpg", "IMG_20180721_192021.jpg", "IMG_20200411_150654.jpg", "IMG_20180622_064455.jpg", "IMG_20180921_161811.jpg", "IMG_20180618_183039.jpg", "IMG_20180523_185829.jpg" ]
 		},
 		{ 
-			"Name" : "Paysages",
-			"Tags" : [ 0, 1, 2 ],
-			"Mini" : "test.png",
-			"Content" : [ "IMG_20180209_120243.jpg" ]
+			"Name" : "Nuits",
+			"Mini" : "nuits.jpg",
+			"Content" : [ "IMG_20180720_052912.jpg", "IMG_20180720_054416.jpg", "IMG_20180720_055003.jpg", "IMG_20180720_055635.jpg" ]
 		},
 		{ 
-			"Name" : "Paysages",
-			"Tags" : [ 0, 1, 2 ],
-			"Mini" : "test.png",
-			"Content" : [ "IMG_20180209_120243.jpg" ]
+			"Name" : "Monuments",
+			"Mini" : "monuments.jpg",
+			"Content" : [ "IMG_20191031_152730.jpg", "IMG_20191031_152857.jpg", "IMG_20191031_154137.jpg", "IMG_20191031_152422.jpg", "IMG_20191031_154221.jpg" ]
 		},
 		{ 
-			"Name" : "Paysages",
-			"Tags" : [ 0, 1, 2 ],
-			"Mini" : "test.png",
-			"Content" : [ "IMG_20180209_120243.jpg" ]
-		},
-		{ 
-			"Name" : "Paysages",
-			"Tags" : [ 0, 1, 2 ],
-			"Mini" : "test.png",
-			"Content" : [ "IMG_20180209_120243.jpg" ]
-		},
-		{ 
-			"Name" : "Paysages",
-			"Tags" : [ 0, 1, 2 ],
-			"Mini" : "test.png",
-			"Content" : [ "IMG_20180209_120243.jpg" ]
-		},
-		{ 
-			"Name" : "Paysages",
-			"Tags" : [ 0, 1, 2 ],
-			"Mini" : "test.png",
-			"Content" : [ "IMG_20180209_120243.jpg" ]
-		},
-		{ 
-			"Name" : "Paysages",
-			"Tags" : [ 0, 1, 2 ],
-			"Mini" : "test.png",
-			"Content" : [ "IMG_20180209_120243.jpg" ]
-		},
-		{ 
-			"Name" : "Paysages",
-			"Tags" : [ 0, 1, 2 ],
-			"Mini" : "test.png",
-			"Content" : [ "IMG_20180209_120243.jpg" ]
+			"Name" : "Portraits",
+			"Mini" : "portraits.jpg",
+			"Content" : [ "IMG_20180421_124025.jpg" ]
 		}
 	]
 }
