@@ -63,7 +63,7 @@ let Global = {
 
 		return undefined;
 	}
-}
+};
 
 let Menu = {
 	menu_lock : false,

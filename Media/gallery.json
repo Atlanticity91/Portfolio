@@ -1,4 +1,9 @@
 {
+	"Config" : {
+ 		"Open" : 500,
+ 		"Box" : 500,
+ 		"Image" : 250
+ 	},
 	"Galleries" : [
 		{ 
 			"Name" : "Natures",

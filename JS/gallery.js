@@ -1,29 +1,27 @@
 (function( $ ) {
 
-	let galleries = Global.LoadJson( 'Media/' + Global.GetAttr( 'Config', 'Gallery' ) )[ 'Galleries' ];
-	let wrapper = $( 'div#gallery-wrapper' );
+	let file = Global.LoadJson( 'Media/' + Global.GetAttr( 'Config', 'Gallery' ) );
+	let galleries = file[ 'Galleries' ];
 
- 	let Preview = {
- 		current : 0,
+ 	let Preview = { 
+ 		speed : file[ 'Config' ],
+ 		loader : {
+ 			image : new Image( ),
+ 			timer : 0
+ 		},
+ 		wrapper : $( 'div#preview-wrapper' ),
+ 		image : $ ( 'img#preview-box-image' ),
  		stage : 0,
  		stage_max : 0,
- 		size_content : 0,
- 		size_displacement : 0,
- 		duration : 500,
+ 		slider : 0,
+ 		slider_move : 0,
  		Resize : function( ) {
- 			Preview.size_wrapper = $( 'div#preview-box-list' ).width( );
- 			Preview.size_displacement = Preview.size_wrapper / 2;
- 			Preview.stage_max = Math.ceil( Preview.size_content / Preview.size_displacement - Preview.size_wrapper / Preview.size_displacement );
+ 			let slider_wrapper = $( 'div#preview-box-list' ).width( );
+ 			Preview.slider_move = slider_wrapper / 2;
+ 			Preview.stage_max = Math.ceil( Preview.slider / Preview.slider_move - slider_wrapper / Preview.slider_move );
 
  			if ( Preview.stage_max < 1 )
- 				$( 'div#preview-box-list-content' ).css( { left : Preview.size_displacement - Preview.size_content / 2 +'px' } );
- 		},
- 		CountElement : function( ) {
- 			Preview.size_content += $( this ).width( );
- 			Preview.size_content += parseInt( $( this ).css( 'padding-left' ) );
- 			Preview.size_content += parseInt( $( this ).css( 'padding-right' ) );
- 			Preview.size_content += parseInt( $( this ).css( 'margin-left' ) );
- 			Preview.size_content += parseInt( $( this ).css( 'margin-right' ) );
+ 				$( 'div#preview-box-list-content' ).css( { left : Preview.slider_move - Preview.slider / 2 +'px' } );
  		},
  		ResizeImage : function( image ) {
  			let max_width = $( 'div#preview-wrapper' ).width( ) * 0.9;
@@ -36,71 +34,22 @@
  				image.css( { height : max_height + 'px', width : 'auto' } );
  		},
  		Fade : function( ) {
- 			$( 'img#preview-box-image' ).fadeTo( Preview.duration, 1 ); 
+ 			Preview.Resize( );
+ 			$( 'img#preview-box-image' ).fadeTo( Preview.speed[ 'Image' ], 1 ); 
  		},
- 		Display : function( image ) {
- 			let display = $( 'img#preview-box-image' );
- 			display.attr( 'src', image ).hide( );
- 			Preview.ResizeImage( display );
+ 		Display : function( ) {
+ 			let image = $( 'img#preview-box-image' );
+ 			image.attr( 'src', Preview.loader.image.src ).hide( );
+ 			Preview.ResizeImage( image );
 
- 			let image_width = display.width( );
- 			let image_height = display.height( );
- 			let wrapper = $( 'div#preview-box-wrapper' );
+ 			let image_width = image.width( );
+ 			let image_height = image.height( );
 
- 			$( 'div#preview-box' ).css( { top : ( ( Global.GetWindow( 'height' ) - 192 ) - image_height ) / 2 + 'px', left : ( $( 'div#preview-wrapper' ).width( ) - image_width ) / 2 + 'px' } ); 
-
- 			wrapper.animate( { width : image_width + 'px' }, Preview.duration ).animate( { height : image_height + 'px' }, Preview.duration, 'linear', Preview.Fade );
- 		},
- 		Open : function( gallery ) {
- 			Global.SetScroll( 'disable' );
- 			Menu.Lock( );
-
- 			$( 'header#menu' ).css( { 'z-index' : '1' } );
-
- 			$( 'span#preview-box-title' ).html( gallery[ 'Name' ] );
-
- 			for ( let idx = 0; idx < gallery[ 'Content' ].length; idx++ )
- 				$( 'div#preview-box-list-content' ).append( '<img class="preview-box-list-content-image" id="preview-box-list-content-image" slug="' + idx + '" src="' + Global.GetAttr( 'Config', 'Images' ) + gallery[ 'Content' ][ idx ] + '" />' );
-
- 			$( 'img#preview-box-list-content-image' ).click( Preview.Click );
- 			
- 			$( 'div#preview-wrapper' ).fadeTo( 2 * Preview.duration , 1 );
- 			$( 'img#preview-box-list-content-image' ).first( ).addClass( 'current' );
-
- 			Preview.Display( Global.GetAttr( 'Config', 'Images' ) + gallery[ 'Content' ][ 0 ] );
- 		},
- 		Close : function( ) {
- 			$( 'div#preview-wrapper' ).hide( );
- 			$( 'div#preview-box' ).css( { top : '0px', left : '0px' } );
- 			$( 'img#preview-box-image' ).attr( 'src', '' );
- 			$( 'div#preview-box-list-content' ).find( 'img' ).remove( );
-
- 			Menu.UnLock( );
- 			Global.SetScroll( 'enable' );
- 		},
- 		PressLeft : function( ) {
- 			if ( Preview.stage > 0 ) {
- 				Preview.stage -= 1;
-
- 				if ( Preview.stage > 0 )
- 					$( 'div#preview-box-list-content' ).animate( { left : Preview.stage * -Preview.size_displacement  + 'px' }, 1000 );
- 				else
- 					$( 'div#preview-box-list-content' ).animate( { left : '40px' }, 1000 );
- 			}
- 		},
- 		PressRight : function( ) {
- 			if ( Preview.stage < Preview.stage_max ) {
- 				Preview.stage += 1;
-
- 				if ( Preview.stage < Preview.stage_max )
- 					$( 'div#preview-box-list-content' ).animate( { left : Preview.stage * -Preview.size_displacement  + 'px' }, 1000 );
- 				else
- 					$( 'div#preview-box-list-content' ).animate( { left : -( Preview.stage * Preview.size_displacement + 64 ) + 'px' }, 1000 );
- 			}
+ 			$( 'div#preview-box' ).animate( { top : ( ( Global.GetWindow( 'height' ) - 192 ) - image_height ) / 2 + 'px', left : ( $( 'div#preview-wrapper' ).width( ) - image_width ) / 2 + 'px' }, Preview.speed[ 'Box' ] ); 
+ 			$( 'div#preview-box-wrapper' ).animate( { width : image_width + 'px' }, Preview.speed[ 'Box' ] ).animate( { height : image_height + 'px' }, Preview.speed[ 'Box' ], 'linear', Preview.Fade );
  		},
  		Click : function( ) {
  			let slug = $( this ).attr( 'slug' );
- 			let image = $( this ).attr( 'src' );
 
  			if ( Preview.current != slug ) {
  				Preview.current = slug;
@@ -108,8 +57,86 @@
  				$( 'img.current' ).removeClass( 'current' );
  				$( this ).addClass( 'current' );
 
- 				Preview.Display( image );
+ 				Preview.Load( $( this ).attr( 'src' ) );
  			}
+ 		},
+ 		Build : function( gallery ) {
+ 			$( 'span#preview-box-title' ).html( gallery[ 'Name' ] );
+
+ 			for ( let idx = 0; idx < gallery[ 'Content' ].length; idx++ ) {
+ 				$( 'div#preview-box-list-content' ).append( '<img class="preview-box-list-content-image" id="preview-box-list-content-image" slug="' + idx + '" src="' + Global.GetAttr( 'Config', 'Images' ) + gallery[ 'Content' ][ idx ] + '" />' );
+
+ 				let image = $( 'img#preview-box-list-content-image' ).last( );
+ 				Preview.slider += image.width( );
+	 			Preview.slider += parseInt( image.css( 'padding-left' ) );
+	 			Preview.slider += parseInt( image.css( 'padding-right' ) );
+	 			Preview.slider += parseInt( image.css( 'margin-left' ) );
+	 			Preview.slider += parseInt( image.css( 'margin-right' ) );
+ 			}
+
+ 			$( 'img#preview-box-list-content-image' ).click( Preview.Click );
+ 		},
+ 		Load : function( image_path ) {
+ 			$( 'div#preview-loader' ).show( );
+
+ 			Preview.loader.image.src = image_path;
+ 			Preview.loader.timer = window.setInterval( 
+ 				function( ) {
+ 					if ( Preview.loader.image.complete ) {
+		 				window.clearInterval( Preview.loader.timer );
+
+		 				$( 'div#preview-loader' ).hide( );
+		 				Preview.Display( );
+		 			}
+ 				}, 100 
+ 			);
+ 		},
+ 		PressLeft : function( ) {
+ 			Preview.stage -= 1;
+ 			if ( Preview.stage > 0 ) 
+ 				$( 'div#preview-box-list-content' ).animate( { left : Preview.stage * -Preview.slider_move  + 'px' }, 1000 );
+ 			else {
+ 				Preview.stage = 0;
+ 				
+ 				$( 'div#preview-box-list-content' ).animate( { left : '40px' }, 1000 );
+ 			}
+ 		},
+ 		PressRight : function( ) {
+ 			Preview.stage += 1;
+
+ 			if ( Preview.stage < Preview.stage_max )
+ 				$( 'div#preview-box-list-content' ).animate( { left : Preview.stage * -Preview.slider_move  + 'px' }, 1000 );
+ 			 else {
+ 			 	Preview.stage = Preview.stage_max;
+
+ 			 	$( 'div#preview-box-list-content' ).animate( { left : -( Preview.stage * Preview.slider_move ) + 'px' }, 1000 );
+ 			}
+ 		},
+ 		Open : function( ) {
+ 			Menu.Lock( );
+ 			let gallery = galleries[ $( this ).attr( 'slug' ) ];
+
+ 			Preview.Build( gallery );
+ 			Preview.wrapper.fadeTo( Preview.speed[ 'Open' ], 1 );
+ 			Preview.Load( Global.GetAttr( 'Config', 'Images' ) + gallery[ 'Content' ][ 0 ] );
+
+ 			$( 'img#preview-box-list-content-image' ).first( ).addClass( 'current' );
+ 		},
+ 		Close : function( ) {
+ 			Preview.slider = 0;
+ 			Preview.wrapper.fadeTo( Preview.speed[ 'Open' ], 0, 
+ 				function( ) { 
+ 					$( this ).hide( ); 
+ 					$( 'img#preview-box-image' ).attr( 'src', '' );
+
+ 					Menu.UnLock( );
+ 				} 
+ 			); 
+ 			
+ 			$( 'div#preview-box-list-content' ).empty( );
+ 		},
+ 		OnResize : function()  {
+ 			Preview.Load( $( 'img#preview-box-image' ).attr( 'src' ) );
  		}
  	};
  	
@@ -120,26 +147,14 @@
 						<span class="gallery-preview-name" id="gallery-preview-name" >' + gallery[ 'Name' ] + '</span>\
 					</div>';
 
-		wrapper.append( html );
+		$( 'div#gallery-wrapper' ).append( html );
 	}
 
-
-	$( 'div#gallery-preview' ).click( 
-		function( ) {
-			let slug = $( this ).attr( 'slug' );
-
-			Preview.Open( galleries[ slug ] );
-		}
-	);
-
-	$( 'div#preview-aplat' ).click( Preview.Close );
-	$( 'span#preview-box-close' ).click( Preview.Close );
-	$( 'div#preview-box-list-content' ).find( 'img' ).each( Preview.CountElement );
-    $( 'span#preview-box-list-left' ).click( Preview.PressLeft );
+	$( 'div#gallery-preview' ).click( Preview.Open );
+	$( 'div#preview-aplat, span#preview-box-close' ).click( Preview.Close );
+	$( 'span#preview-box-list-left' ).click( Preview.PressLeft );
     $( 'span#preview-box-list-right' ).click( Preview.PressRight );
-    $( window ).resize( Preview.Resize );
 
-    Preview.Close( );
-    Preview.Resize( );
+    $( window ).resize( Preview.OnResize );
 
 })( jQuery )
