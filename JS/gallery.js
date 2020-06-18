@@ -61,15 +61,15 @@
 
  				$( 'img.current' ).removeClass( 'current' );
  				$( this ).addClass( 'current' );
-
- 				Preview.Load( $( this ).attr( 'src' ) );
+ 				
+ 				Preview.Load( Global.GetAttr( 'Config', 'Images' ) + gallery[ 'Content' ][ $( this ).attr( 'slug' ) ] );
  			}
  		},
  		Build : function( gallery ) {
  			$( 'span#preview-box-title' ).html( gallery[ 'Name' ] );
 
  			for ( let idx = 0; idx < gallery[ 'Content' ].length; idx++ ) {
- 				$( 'div#preview-box-list-content' ).append( '<img class="preview-box-list-content-image" id="preview-box-list-content-image" slug="' + idx + '" src="' + Global.GetAttr( 'Config', 'Images' ) + gallery[ 'Content' ][ idx ] + '" />' );
+ 				$( 'div#preview-box-list-content' ).append( '<img class="preview-box-list-content-image" id="preview-box-list-content-image" slug="' + idx + '" src="' + Global.GetAttr( 'Config', 'Miniatures' ) + gallery[ 'Content' ][ idx ] + '" />' );
 
  				let image = $( 'img#preview-box-list-content-image' ).last( );
  				Preview.slider += image.width( );
