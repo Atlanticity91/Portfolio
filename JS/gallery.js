@@ -15,6 +15,7 @@
  		stage_max : 0,
  		slider : 0,
  		slider_move : 0,
+ 		gallery_content : undefined,
  		Resize : function( ) {
  			let slider_wrapper = $( 'div#preview-box-list' ).width( );
  			Preview.slider_move = slider_wrapper / 2;
@@ -62,7 +63,7 @@
  				$( 'img.current' ).removeClass( 'current' );
  				$( this ).addClass( 'current' );
  				
- 				Preview.Load( Global.GetAttr( 'Config', 'Images' ) + gallery[ 'Content' ][ $( this ).attr( 'slug' ) ] );
+ 				Preview.Load( Global.GetAttr( 'Config', 'Images' ) + Preview.gallery_content[ $( this ).attr( 'slug' ) ] );
  			}
  		},
  		Build : function( gallery ) {
@@ -122,9 +123,10 @@
  			Menu.Lock( );
  			let gallery = galleries[ $( this ).attr( 'slug' ) ];
 
+ 			Preview.gallery_content = gallery[ 'Content' ];
  			Preview.Build( gallery );
  			Preview.wrapper.fadeTo( Preview.speed[ 'Open' ], 1 );
- 			Preview.Load( Global.GetAttr( 'Config', 'Images' ) + gallery[ 'Content' ][ 0 ] );
+ 			Preview.Load( Global.GetAttr( 'Config', 'Images' ) + Preview.gallery_content[ 0 ] );
 
  			$( 'img#preview-box-list-content-image' ).first( ).addClass( 'current' );
  		},
