@@ -35,7 +35,12 @@
  		},
  		Fade : function( ) {
  			Preview.Resize( );
- 			$( 'img#preview-box-image' ).fadeTo( Preview.speed[ 'Image' ], 1 ); 
+
+ 			$( 'img#preview-box-image' ).fadeTo( Preview.speed[ 'Image' ], 1,
+ 				function( ) {
+ 					$( 'img#preview-box-list-content' ).fadeIn( );
+ 				}
+ 			); 
  		},
  		Display : function( ) {
  			let image = $( 'img#preview-box-image' );
@@ -113,6 +118,7 @@
  			}
  		},
  		Open : function( ) {
+ 			Global.SetScroll( 'disable' );
  			Menu.Lock( );
  			let gallery = galleries[ $( this ).attr( 'slug' ) ];
 
@@ -134,6 +140,9 @@
  			); 
  			
  			$( 'div#preview-box-list-content' ).empty( );
+
+ 			Global.SetScroll( 'enable' );
+ 			Menu.UnLock( );
  		},
  		OnResize : function()  {
  			Preview.Load( $( 'img#preview-box-image' ).attr( 'src' ) );
@@ -156,5 +165,9 @@
     $( 'span#preview-box-list-right' ).click( Preview.PressRight );
 
     $( window ).resize( Preview.OnResize );
+
+    $( 'img#gallery-preview-mini' ).each( ).css(
+    	{ 'left' : $( this ).width( ) / 2 + 'px' }
+    );
 
 })( jQuery )

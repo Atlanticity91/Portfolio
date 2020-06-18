@@ -1,41 +1,51 @@
+/*----------------------------------------------------
+ * 			GALLERY PAGE DESIGN
+ *----------------------------------------------------*/
 div.gallery-wrapper { 
-	display : grid;
-	grid-template-columns : 1fr;
-	grid-column-gap : 8px;
-	grid-row-gap : 8px;
-	padding: 8px 0;
+	margin-left : 16px;
+	margin-right : 16px;
+	margin-top: 132px;
+	width : auto;
+	display : -webkit-box;
+	display : flex;
+	box-sizing : border-box;
 }
 
 div.gallery-preview { 
-	position: relative; 
+	-webkit-box-flex : 1;
+	flex : 1;
+	overflow : hidden;
+	-webkit-transition : 0.5s;
+	transition : 0.5s;
+	margin : 0 2%;
+	box-shadow : 0 20px 30px rgba( 0, 0, 0, 0.1 );
+	line-height : 0;
 	cursor : pointer;
 }
 
+div.gallery-preview:hover { background-color : rgba( 241, 242, 246, 0.75 ); }
+
 img.gallery-preview-mini { 
-	width: 100%;
-	height: auto;
+	width : 200%;
+	height : calc( 100% - 10vh );
+	-o-object-fit : cover;
+	object-fit : cover;
+	-webkit-transition : 0.5s;
+	transition : 0.5s;
 }
 
-span.gallery-preview-name {  
-	left: 0;
-	position: absolute;
-	height: 32px;
-	width: 100%;
-	bottom: 0;
-	background: linear-gradient( 90deg, transparent, rgba( 51, 51, 51, 0.9 ), rgba( 51, 51, 51, 0.9 ), transparent );
-	line-height: 32px;
-	font-size: 16px;
-	text-align: center;
+span.gallery-preview-name { 
+	font-size : 3.8vh;
+	display : block;
+	text-align : center;
+	height : 10vh;
+	line-height : 2.6;
 }
 
-@media screen and ( min-width : 640px ) {
-	div.gallery-wrapper { grid-template-columns : repeat( 4, 1fr ); }
-	img.gallery-preview-mini { width: 90%; }
-}
-
-div.preview-wrapper { 
-	display : none; 
-}
+/*----------------------------------------------------
+ * 			GALLERY PREVIEW BOX
+ *----------------------------------------------------*/
+div.preview-wrapper { display : none; }
 
 div.preview-aplat {
 	position : fixed;
@@ -61,24 +71,24 @@ preview-loader svg {
 	height : 100%;
 }
 
-
 span.preview-box-title {
 	position : absolute;
-	height: 32px;
+	height : 32px;
 	line-height : 32px;
-	font-size: 16px;
+	font-size : 16px;
 	text-align : center;
 	left : 0;
-	right: 0;
+	right : 0;
 	width : auto;
 	text-shadow: #333 1px 0 5px;
+	background : -webkit-gradient(linear, left top, right top, from(transparent), color-stop(25%, rgba(255, 255, 255, 0.2)), color-stop(75%, rgba(255, 255, 255, 0.2)), to(transparent));
+	background : -o-linear-gradient(left, transparent 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, transparent 100%);
 	background : linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, transparent 100%);
-	-webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Old versions of Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-     user-select: none;
+	-webkit-touch-callout : none; 
+    -webkit-user-select : none; 
+    -moz-user-select : none; 
+    -ms-user-select : none; 
+     user-select : none;
 }
 
 span.preview-box-close {
@@ -91,11 +101,11 @@ span.preview-box-close {
 }
 
 span.preview-box-close svg {
-	top: 4px;
-	bottom: 4px;
-	left: 4px;
-	right: 4px;
-	margin: auto;
+	top : 4px;
+	bottom : 4px;
+	left : 4px;
+	right : 4px;
+	margin : auto;
 }
 
 span.preview-box-close svg path { fill : #333; }
@@ -104,7 +114,7 @@ span.preview-box-close:hover svg path { fill : #000; }
 
 div.preview-box-wrapper { 
 	padding : 4px;
-	background : #fff;
+	background : rgba( 241, 242, 246, 0.75 );
 }
 
 div.preview-box-list {
@@ -113,6 +123,8 @@ div.preview-box-list {
 	bottom : -128px;
 	height : 128px;
 	width : 100%;
+	background : -webkit-gradient(linear, left top, right top, from(transparent), color-stop(25%, rgba(255, 255, 255, 0.2)), color-stop(75%, rgba(255, 255, 255, 0.2)), to(transparent));
+	background : -o-linear-gradient(left, transparent 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, transparent 100%);
 	background : linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, transparent 100%);
 }
 
@@ -134,15 +146,17 @@ span.preview-box-list-right { right : 0; }
 
 span.preview-box-list-left:hover,
 span.preview-box-list-right:hover {
+	background : -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), color-stop(25%, rgba(255, 255, 255, 0.2)), color-stop(75%, rgba(255, 255, 255, 0.2)), to(rgba(255, 255, 255, 0)));
+	background : -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
 	background : linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
 }  
 
 div.preview-box-list-content {
-	position: absolute;
-	left: 40px;
+	position : absolute;
+	left : 40px;
 	width : 5000px;
 	height : 128px;
-	padding-top: 8px;
+	padding-top : 8px;
 }
 
 img.preview-box-list-content-image {

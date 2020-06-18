@@ -1,3 +1,6 @@
+/*----------------------------------------------------
+ *      CONTACT PAGE DESIGN
+ *----------------------------------------------------*/
 div.contact-wrapper {  
   position: absolute;
   width: 100%;
@@ -5,9 +8,7 @@ div.contact-wrapper {
   padding: 8px;
 }
 
-form.contact {
-	position: relative;
-}
+form.contact { position: relative; }
 
 div.contact-field { 
   position : relative;
@@ -16,7 +17,7 @@ div.contact-field {
 
 input.contact-field-input,
 textarea.contact-field-textarea {
-	background : transparent;
+  background : transparent;
   font-size : 18px;
   padding : 10px 10px 10px 5px;
   display : block;
@@ -44,6 +45,7 @@ label.contact-field-label {
   pointer-events:none;
   left:5px;
   top:10px;
+  -o-transition:0.2s ease all;
   transition:0.2s ease all; 
   -moz-transition:0.2s ease all; 
   -webkit-transition:0.2s ease all;
@@ -58,19 +60,20 @@ textarea.contact-field-textarea:valid ~ label.contact-field-label {
   color : #e58e26;
 }
 
-span.contact-field-bar 	{ 
-	position : relative; 
-	display : block; 
+span.contact-field-bar  { 
+  position : relative; 
+  display : block; 
 }
 
 span.contact-field-bar:before, 
-span.contact-field-bar:after 	{
+span.contact-field-bar:after  {
   content:'';
   height:2px; 
   width:0;
   bottom:1px; 
   position:absolute;
   background : #e58e26; 
+  -o-transition:0.2s ease all; 
   transition:0.2s ease all; 
   -moz-transition:0.2s ease all; 
   -webkit-transition:0.2s ease all;
@@ -100,21 +103,16 @@ span.contact-field-highlight {
 input.contact-field-input:focus ~ span.contact-field-highlight,
 textarea.contact-field-textarea:focus ~ span.contact-field-highlight {
   -webkit-animation:inputHighlighter 0.3s ease;
-  -moz-animation:inputHighlighter 0.3s ease;
   animation:inputHighlighter 0.3s ease;
 }
 
 @-webkit-keyframes inputHighlighter {
-	from { background: #e58e26; }
-	to { width:0; background:transparent; }
-}
-@-moz-keyframes inputHighlighter {
-	from { background : #e58e26; }
-	to { width:0; background:transparent; }
+  from { background: #e58e26; }
+  to { width:0; background:transparent; }
 }
 @keyframes inputHighlighter {
-	from { background : #e58e26; }
-	to { width:0; background:transparent; }
+  from { background : #e58e26; }
+  to { width:0; background:transparent; }
 }
 
 button.contact-field-button {
@@ -127,10 +125,13 @@ button.contact-field-button {
   border-width: 0;
   outline: none;
   border-radius: 2px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+          box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
   background-color: #333;
   color: #ecf0f1;
   width: 100%;
+  -webkit-transition: background-color .3s;
+  -o-transition: background-color .3s;
   transition: background-color .3s;
 }
 
@@ -155,14 +156,14 @@ button.contact-field-button:before {
   border-radius: 100%;
   background-color: rgba(236, 240, 241, .3);
   -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 
 button.contact-field-button:active:before {
   width: 120%;
   padding-top: 120%;
+  -webkit-transition: width .2s ease-out, padding-top .2s ease-out;
+  -o-transition: width .2s ease-out, padding-top .2s ease-out;
   transition: width .2s ease-out, padding-top .2s ease-out;
 }
