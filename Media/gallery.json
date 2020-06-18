@@ -8,22 +8,22 @@
 		{ 
 			"Name" : "Natures",
 			"Mini" : "natures.jpg",
-			"Content" : [ "IMG_20180506_140202.jpg", "IMG_20180506_140639.jpg", "IMG_20181113_130428_1.jpg", "IMG_20180721_192021.jpg", "IMG_20200411_150654.jpg", "IMG_20180622_064455.jpg", "IMG_20180921_161811.jpg", "IMG_20180618_183039.jpg", "IMG_20180523_185829.jpg" ]
+			"Content" : [ "tree_0.jpg", "tree_1.jpg", "tree_2.jpg", "flore_1.jpg", "flore_2.jpg", "rose_2.jpg", "rose_1.jpg", "rose_3.jpg", "paysage_0.jpg" ]
 		},
 		{ 
 			"Name" : "Nuits",
 			"Mini" : "nuits.jpg",
-			"Content" : [ "IMG_20180720_052912.jpg", "IMG_20180720_054416.jpg", "IMG_20180720_055003.jpg", "IMG_20180720_055635.jpg" ]
+			"Content" : [ "night_0.jpg", "night_1.jpg", "night_2.jpg", "night_3.jpg" ]
 		},
 		{ 
 			"Name" : "Monuments",
 			"Mini" : "monuments.jpg",
-			"Content" : [ "IMG_20191031_152730.jpg", "IMG_20191031_152857.jpg", "IMG_20191031_154137.jpg", "IMG_20191031_152422.jpg", "IMG_20191031_154221.jpg" ]
+			"Content" : [ "monument_3.jpg", "monument_0.jpg", "monument_2.jpg", "monument_1.jpg", "monument_4.jpg" ]
 		},
 		{ 
 			"Name" : "Portraits",
 			"Mini" : "portraits.jpg",
-			"Content" : [ "IMG_20180421_124025.jpg" ]
+			"Content" : [ "portrait_0.jpg" ]
 		}
 	]
 }
