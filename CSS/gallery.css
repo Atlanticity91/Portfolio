@@ -9,11 +9,13 @@ div.gallery-wrapper {
 	display : -webkit-box;
 	display : flex;
 	box-sizing : border-box;
+	flex-direction : row;
+	flex-wrap : wrap;
 }
 
 div.gallery-preview { 
-	-webkit-box-flex : 1;
-	flex : 1;
+	-webkit-box-flex : 1 1 auto;
+	flex : 1 1 auto;
 	overflow : hidden;
 	-webkit-transition : 0.5s;
 	transition : 0.5s;
@@ -40,6 +42,15 @@ span.gallery-preview-name {
 	text-align : center;
 	height : 10vh;
 	line-height : 2.6;
+}
+
+@media screen and ( max-width : 980px ) {
+	
+	div.gallery-preview { 
+		-webkit-box-flex : 1 1 100%;
+		flex : 1 1 100%;
+	}
+
 }
 
 /*----------------------------------------------------
