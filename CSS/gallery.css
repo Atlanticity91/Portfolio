@@ -44,14 +44,14 @@ span.gallery-preview-name {
 	line-height : 2.6;
 }
 
-@media screen and ( max-width : 980px ) {
+/*@media screen and ( max-width : 980px ) {
 	
 	div.gallery-preview { 
 		-webkit-box-flex : 1 1 100%;
 		flex : 1 1 100%;
 	}
 
-}
+}*/
 
 /*----------------------------------------------------
  * 			GALLERY PREVIEW BOX
