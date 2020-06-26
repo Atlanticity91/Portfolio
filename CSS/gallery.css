@@ -14,8 +14,8 @@ div.gallery-wrapper {
 }
 
 div.gallery-preview { 
-	-webkit-box-flex : 1 1 auto;
-	flex : 1 1 auto;
+	-webkit-box-flex : 1;/* 1 auto;*/
+	flex : 1;/* 1 auto;*/
 	overflow : hidden;
 	-webkit-transition : 0.5s;
 	transition : 0.5s;
